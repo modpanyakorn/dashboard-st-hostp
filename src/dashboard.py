@@ -16,7 +16,7 @@ cell_style_js = JsCode("""
 """)
 
 # โหลดข้อมูลจาก CSV
-df = pd.read_csv('D:/Working/dashboard-st-hostp/src/patient1.csv')
+df = pd.read_csv('patient1.csv')
 
 # แสดงเฉพาะบางคอลัมน์ที่ต้องการ
 df_show = df.drop(['NUMBER', '__PATIENT_NAME__', '__DEBT_VALUE__'], axis=1)
