@@ -7,16 +7,16 @@ from streamlit_modal import Modal
 cell_style_js = JsCode("""
     function(params) {
         if (params.value < 0) {
-            return {'backgroundColor': 'red'};
+            return {'backgroundColor': 'rgb(255, 43, 67)'};
         } else if (params.value > 0) {
-            return {'backgroundColor': 'green'};
+            return {'backgroundColor': 'rgb(0, 145, 255)'};
         }
-        return {};
+        return {'backgroundColor': 'rgb(60, 179, 113)'};
     }
 """)
 
 # โหลดข้อมูลจาก CSV
-df = pd.read_csv('patient1.csv')
+df = pd.read_csv('D:\Working\dashboard-st-hostp\src\patient1.csv')
 
 # แสดงเฉพาะบางคอลัมน์ที่ต้องการ
 df_show = df.drop(['NUMBER', '__PATIENT_NAME__', '__DEBT_VALUE__'], axis=1)
@@ -54,6 +54,10 @@ modal = Modal(
     padding=20,
     max_width=500
 )
+
+# if len(selected_row) > 0:
+#     st.markdown(f"<h3>Hospital Number: {selected_row.iloc[0, 0]}</h3>", unsafe_allow_html=True)
+#     st.markdown(f"<h4>Date: {selected_row.iloc[0, 1]}</h4>", unsafe_allow_html=True)
 
 # จัดปุ่ม "SHOW" ไปทางขวา
 col1, col2 = st.columns([8, 2])
